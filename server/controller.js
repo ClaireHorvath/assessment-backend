@@ -7,6 +7,13 @@ module.exports = {
         
         res.sendStatus(200);
     },
+    favoriteColor: (req, res) => {
+        const {phrase} = req.body
+        
+        let favoriteColor = {phrase}
+        
+        res.sendStatus(200);
+    },
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
       
@@ -38,28 +45,4 @@ module.exports = {
     
         res.status(200).send(spiritAnimal);
     },
-    createCrystalRating: (req, res) => {
-        const crystal = Citrine;
-        let { color, price, size } = req.body
-        let crystalProperties = {
-            color,
-            price,
-            size
-        }
-        crystal.push(crystalProperties)
-        res.status(200).send(crystal)
-    },
-    updateCrystal: (req, res) => {
-        const {type} = req.body;
-        let index = crystal.findIndex((elem) => elem.id === +req.params.id)
-        if(type === 'minus' && crystal[index].rating > 1){
-            crystal[index].rating -= 1;
-            res.status(200).send(crystal)
-        } else if (type === 'plus' && crystal[index].rating < 5){
-            crystal[index].rating += 1;
-            res.status(200).send(crystal)
-        } else {
-            res.status(400).send('Not a good rating!')
-        }
-    }
 }

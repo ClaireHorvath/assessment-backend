@@ -9,20 +9,18 @@ app.use(express.json());
 
 const { 
     addQuote, 
+    favoriteColor,
     getCompliment, 
     getFortune, 
     deleteFortune, 
-    getSpiritAnimal,
-    createCrystal,
-    updateCrystal
+    getSpiritAnimal
 } = require('./controller.js');
 
 app.post("/api/quote", addQuote);
+app.post("/api/color", favoriteColor)
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
 app.delete("/api/fortune", deleteFortune);
 app.get("/api/animal", getSpiritAnimal);
-app.post("/api/crystal", createCrystal);
-app.put("/api/crystal", updateCrystal);
 
 app.listen(4000, () => console.log("Server running on 4000"));

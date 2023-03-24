@@ -62,3 +62,20 @@ const addQuote = (event) => {
 };
   
 favoriteQuoteForm.addEventListener('submit', addQuote);
+
+
+const favoriteColor = (event) => {
+    event.preventDefault()
+  
+    const favoriteColor = document.querySelector("#favorite-color-form")
+  
+    axios.post('http://localhost:4000/api/favoriteColor', favoriteColor)
+        .then(res => {
+            favoriteColor()
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+};
+  
+favoriteQuoteForm.addEventListener('add', favoriteColor);
