@@ -23,6 +23,15 @@ module.exports = {
       
         res.status(200).send(randomCompliment);
     },
+    addCompliment: (req, res) => {
+        const {type} = req.params;
+        let index = compliments.findIndex((elem) => elem.id === +req.params.id);
+        compliments[index, 2].id;
+        compliments.push(addCompliment);
+
+        res.status(200).send("You have that glow");
+        return;
+    },
     getFortune: (req, res) => {
         const fortunes = ["You are loved", "You will be prosperous", "Career succes awaits you", "You will live a long life", "Distrust all lovers this year", "Tomorrow is a fresh start"];
         

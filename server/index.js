@@ -11,6 +11,7 @@ const {
     addQuote, 
     favoriteColor,
     getCompliment, 
+    addCompliment,
     getFortune, 
     deleteFortune, 
     getSpiritAnimal
@@ -19,6 +20,7 @@ const {
 app.post("/api/quote", addQuote);
 app.post("/api/color", favoriteColor)
 app.get("/api/compliment", getCompliment);
+app.put("/api/compliment", addCompliment);
 app.get("/api/fortune", getFortune);
 app.delete("/api/fortune", deleteFortune);
 app.get("/api/animal", getSpiritAnimal);

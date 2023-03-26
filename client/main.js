@@ -13,6 +13,10 @@ const getCompliment = () => {
 
 complimentBtn.addEventListener('click', getCompliment);
 
+const complimentUpdated = () => {
+    axios.put("http://localhost:4000/api/compliment", complimentUpdated).then("You have that glow");
+};
+
 
 const fortuneBtn = document.getElementById("fortuneButton");
 
