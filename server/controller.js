@@ -47,11 +47,11 @@ module.exports = {
         res.status(200).send(fortunes);
     },
     getSpiritAnimal: (req, res) => {
-        const animals = [cat, elephant, gorilla, ant, python];
+        const animals = ["cat", "elephant", "gorilla", "ant", "python"];
 
         let randomAnimal = Math.floor(Math.random() * animals.length);
         let spiritAnimal = animals[randomAnimal];
     
         res.status(200).send(spiritAnimal);
-    },
+    }
 }
