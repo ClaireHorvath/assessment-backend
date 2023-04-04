@@ -1,84 +1,172 @@
-const complimentBtn = document.querySelector('form');
-const fortuneBtn = document.getElementById("fortuneButton");
+const complimentBtn = document.querySelector("#compliment-button");
+const fortuneBtn = document.querySelector("#fortune-button");
 const spiritAnimal = document.querySelector("#spirit-animal-form");
 const favoriteQuote = document.querySelector("#favorite-quote-form");
 const favoriteColor = document.querySelector("#favorite-color-form");
 
-const getCompliment = () => {
-    axios.get('http://localhost:4000/api/compliment/')
-        .then(res => {
-            const data = res.data;
-            console.log(res.data);
-            alert(data);
+const getCompliment = (event) => {
+  
+    axios.get(`http://localhost:4000/api/compliment/`)
+    .then((res) => {
+      console.log(res.data)
+  
+      for (let i = 0; i < data.length; i++){
+        complimentBtn(res.data[i])
+      }
     })
-        .catch((err) => {
-            console.log(err);
-        })
+    .catch(() => {
+      console.log(err)
+    })
 };
-
+// const getCompliment = (event) => {
+//     axios.get('http://localhost:4000/api/compliment/')
+//         .then(res => {
+//             const data = res.data;
+//             console.log(res.data);
+//             alert(data);
+//     })
+//         .catch((err) => {
+//             console.log(err);
+//         })
+// };
 complimentBtn.addEventListener('click', getCompliment);
 
-const complimentUpdated = () => {
-    axios.put('http://localhost:4000/api/compliment/', complimentUpdated).then("You have that glow");
+
+const complimentUpdated = (event) => {
+  
+    axios.put(`http://localhost:4000/api/compliment/`)
+    .then((res) => {
+      console.log(res.data)
+  
+      for (let i = 0; i < data.length; i++){
+        complimentBtn(res.data[i])
+      }
+    })
+    .catch(() => {
+      console.log(err)
+    })
 };
+// const complimentUpdated = () => {
+//     axios.put('http://localhost:4000/api/compliment/', complimentUpdated)
+//         .then(res => {
+//             alert(data)
+//             return "You have that glow";
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         })
+// };
+complimentBtn.addEventListener('click', getCompliment);
 
 
-const getFortune = () => {
-    axios.get('http://localhost:4000/api/fortune/')
-        .then(res => {
-            const data = res.data;
-            alert(data);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+const getFortune = (event) => {
+  
+    axios.get(`http://localhost:4000/api/fortune/`)
+    .then((res) => {
+      console.log(res.data)
+  
+      for (let i = 0; i < data.length; i++){
+        fortuneBtn(res.data[i])
+      }
+    })
+    .catch(() => {
+      console.log(err)
+    })
 };
-
+// const getFortune = () => {
+//     axios.get('http://localhost:4000/api/fortune/')
+//         .then(res => {
+//             const data = res.data;
+//             alert(data);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         })
+// };
 fortuneBtn.addEventListener('click', getFortune);
 
 
 const getSpiritAnimal = (event) => {
-    event.preventDefault()
+  
+    axios.get(`http://localhost:4000/api/animals/`)
+    .then((res) => {
+      console.log(res.data)
+  
+      for (let i = 0; i < data.length; i++){
+        animals(res.data[i])
+      }
+    })
+    .catch(() => {
+      console.log(err)
+    })
+  };
+// const spiritAnimal = (event) => {
+//     event.preventDefault()
 
-    axios.get('http://localhost:4000/api/animal/')
-        .then(res => {
-            alert(res.data);
-            console.log(animals[i]);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-};
-
+//     axios.get('http://localhost:4000/api/animals/')
+//         .then(res => {
+//             alert(res.data);
+//             console.log(animals[i]);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         })
+// };
 spiritAnimal.addEventListener('submit', getSpiritAnimal);
 
 
 const addQuote = (event) => {
-    event.preventDefault()
   
-    axios.post('http://localhost:4000/quote/', favoriteQuote)
-        .then(res => {
-            addQuote(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-};
+    axios.post(`http://localhost:4000/api/quote/`)
+    .then((res) => {
+      console.log(res.data)
   
-console.log(addQuote());
-favoriteQuoteForm.addEventListener('submit', addQuote);
+      for (let i = 0; i < data.length; i++){
+        newQuote(res.data)
+      }
+    })
+    .catch(() => {
+      console.log(err)
+    })
+  };
+// const addQuote = (event) => {
+//     event.preventDefault()
+  
+//     axios.post('http://localhost:4000/quote/', favoriteQuote)
+//         .then(res => {
+//             addQuote(res.data)
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// };
+favoriteQuote.addEventListener('submit', addQuote);
+
 
 
 favoriteColor = (event) => {
-    event.preventDefault()
   
-    axios.post('http://localhost:4000/api/color/', favoriteColor)
-        .then(res => {
-            favoriteColor(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+    axios.get(`http://localhost:4000/api/color/`)
+    .then((res) => {
+      console.log(res.data)
+  
+      for (let i = 0; i < data.length; i++){
+        favoriteColor(res.data)
+      }
+    })
+    .catch(() => {
+      console.log(err)
+    })
 };
+// favoriteColor = (event) => {
+//     event.preventDefault()
   
-favoriteQuoteForm.addEventListener('add', favoriteColor);
+//     axios.post('http://localhost:4000/api/color/', favoriteColor)
+//         .then(res => {
+//             favoriteColor(res.data)
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// };
+favoriteColor.addEventListener('add', favoriteColor);
