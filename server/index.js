@@ -7,8 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 const { 
-    addQuote, 
-    favoriteColor,
+    // addQuote,
+    // favoriteColor,
     getCompliment, 
     // addCompliment,
     getFortune, 
@@ -16,8 +16,8 @@ const {
     getSpiritAnimal
 } = require('./controller.js');
 
-app.post('/api/quote', addQuote);
-app.post('/api/color', favoriteColor)
+// app.post('/api/quote', addQuote);
+// app.post('/api/color', favoriteColor)
 app.get('/api/compliment', getCompliment);
 // app.put('/api/compliment', addCompliment);
 app.get('/api/fortune', getFortune);

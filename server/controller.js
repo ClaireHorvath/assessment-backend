@@ -1,19 +1,19 @@
 module.exports = {
 
-    addQuote: (req, res) => {
-        const {phrase, origin} = req.body
+    // addQuote: (req, res) => {
+    //     const {phrase, origin} = req.body
         
-        let newQuote = {phrase, origin}
+    //     let newQuote = {phrase, origin}
         
-        res.sendStatus(200);
-    },
-    favoriteColor: (req, res) => {
-        const {phrase} = req.body
+    //     res.sendStatus(200);
+    // },
+    // favoriteColor: (req, res) => {
+    //     const {phrase} = req.body
         
-        let favoriteColor = {phrase}
+    //     let favoriteColor = {phrase}
         
-        res.sendStatus(200);
-    },
+    //     res.sendStatus(200);
+    // },
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
       

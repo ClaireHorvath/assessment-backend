@@ -1,8 +1,8 @@
 const complimentBtn = document.getElementById("complimentButton");
 const fortuneBtn = document.getElementById("fortuneButton");
 let spiritAnimalBtn = document.getElementById("spiritAnimalButton");
-const favoriteQuote = document.getElementById("favorite-quote-form");
-const favoriteColor = document.getElementById("favorite-color-form");
+// const favoriteQuote = document.getElementById("favorite-quote-form");
+// const favoriteColor = document.getElementById("favorite-color-form");
 
 
 const getCompliment = (event) => {
@@ -50,23 +50,7 @@ const getFortune = () => {
 fortuneBtn.addEventListener('click', getFortune);
 
 
-
-// spiritAnimal = (event) => {
-//     event.preventDefault()
-
-//     axios.get('http://localhost:4000/api/animals/')
-//         .then(res => {
-//             alert(res.data);
-//             console.log(animals[i]);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         })
-// };
-
-// spiritAnimal.addEventListener('submit', spiritAnimal);
-
-const spiritAnimal = (event) => {
+const spiritAnimal = () => {
     axios.get('http://localhost:4000/api/animal/')
         .then(res => {
             const data = res.data;
@@ -78,35 +62,35 @@ const spiritAnimal = (event) => {
         })
 };
 
-spiritAnimalBtn.addEventListener('submit', spiritAnimal);
+spiritAnimalBtn.addEventListener('click', spiritAnimal);
 
 
 
-const addQuote = (event) => {
-    event.preventDefault()
+// const addQuote = (event) => {
+//     event.preventDefault()
   
-    axios.post('http://localhost:4000/quote/', favoriteQuote)
-        .then(res => {
-            addQuote(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-};
+//     axios.post('http://localhost:4000/quote/', favoriteQuote)
+//         .then(res => {
+//             addQuote(res.data)
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// };
 
-favoriteQuote.addEventListener('submit', addQuote);
+// favoriteQuote.addEventListener('submit', addQuote);
 
 
-favoriteColor = (event) => {
-    event.preventDefault()
+// favoriteColor = (event) => {
+//     event.preventDefault()
   
-    axios.post('http://localhost:4000/api/color/', favoriteColor)
-        .then(res => {
-            favoriteColor(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-};
+//     axios.post('http://localhost:4000/api/color/', favoriteColor)
+//         .then(res => {
+//             favoriteColor(res.data)
+//         })
+//         .catch((err) => {
+//             console.log(err)
+//         })
+// };
 
-favoriteColor.addEventListener('add', favoriteColor);
+// favoriteColor.addEventListener('add', favoriteColor);
