@@ -7,19 +7,17 @@ app.use(cors());
 app.use(express.json());
 
 const { 
-    // addQuote,
-    // favoriteColor,
+    addCompliment,
+    addFortune,
     getCompliment, 
-    // addCompliment,
     getFortune, 
     deleteFortune, 
     getSpiritAnimal
 } = require('./controller.js');
 
-// app.post('/api/quote', addQuote);
-// app.post('/api/color', favoriteColor)
+app.post('/api/compliment', addCompliment);
+app.post('/api/fortune', addFortune)
 app.get('/api/compliment', getCompliment);
-// app.put('/api/compliment', addCompliment);
 app.get('/api/fortune', getFortune);
 app.delete('/api/fortune', deleteFortune);
 app.get('/api/animal', getSpiritAnimal);

@@ -1,11 +1,13 @@
 const complimentBtn = document.getElementById("complimentButton");
 const fortuneBtn = document.getElementById("fortuneButton");
-let spiritAnimalBtn = document.getElementById("spiritAnimalButton");
-// const favoriteQuote = document.getElementById("favorite-quote-form");
-// const favoriteColor = document.getElementById("favorite-color-form");
+const spiritAnimalBtn = document.getElementById("spiritAnimalButton");
+const addCompliment = document.getElementById("newComplimentButton");
+const addFortune = document.getElementById("newFortuneButton");
+const phrase = document.getElementById("message");
+const idiom = document.getElementById("saying");
 
 
-const getCompliment = (event) => {
+const getCompliment = () => {
     axios.get('http://localhost:4000/api/compliment/')
         .then(res => {
             const data = res.data;
@@ -20,20 +22,21 @@ const getCompliment = (event) => {
 complimentBtn.addEventListener('click', getCompliment);
 
 
+const newCompliment = (event) => {
+    event.preventDefault()
 
-// const complimentUpdated = () => {
-//     axios.put('http://localhost:4000/api/compliment/', complimentUpdated)
-//         .then(res => {
-//             alert(data)
-//             return "You have that glow";
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         })
-// };
+    axios.post('http://localhost:4000/api/compliment/', {phrase: phrase.value})
+        .then(res => {
+            const data = res.data;
+            console.log(res.data);
+            alert(data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+};
 
-// complimentBtn.addEventListener('click', getCompliment);
-
+addCompliment.addEventListener('submit', newCompliment);
 
 
 const getFortune = () => {
@@ -50,6 +53,23 @@ const getFortune = () => {
 fortuneBtn.addEventListener('click', getFortune);
 
 
+const newFortune = (event) => {
+    event.preventDefault()
+
+    axios.post('http://localhost:4000/api/fortune/', {idiom: idiom.value})
+        .then(res => {
+            const data = res.data;
+            console.log(res.data);
+            alert(data);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+};
+
+addFortune.addEventListener('submit', newFortune);
+
+
 const spiritAnimal = () => {
     axios.get('http://localhost:4000/api/animal/')
         .then(res => {
@@ -63,34 +83,3 @@ const spiritAnimal = () => {
 };
 
 spiritAnimalBtn.addEventListener('click', spiritAnimal);
-
-
-
-// const addQuote = (event) => {
-//     event.preventDefault()
-  
-//     axios.post('http://localhost:4000/quote/', favoriteQuote)
-//         .then(res => {
-//             addQuote(res.data)
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//         })
-// };
-
-// favoriteQuote.addEventListener('submit', addQuote);
-
-
-// favoriteColor = (event) => {
-//     event.preventDefault()
-  
-//     axios.post('http://localhost:4000/api/color/', favoriteColor)
-//         .then(res => {
-//             favoriteColor(res.data)
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//         })
-// };
-
-// favoriteColor.addEventListener('add', favoriteColor);
